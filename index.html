@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Comment Box</title>
+</head>
+<body>
+    <div id="container">
+        <p>1.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda quisquam temporibus fuga pariatur alias ab amet, perferendis ducimus corrupti beatae.</p>
+        <p>2.Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda quisquam temporibus fuga pariatur alias ab amet, perferendis ducimus corrupti beatae.</p>
+    </div>
+    <div>
+        <textarea id="user-comment-field" cols="30" rows="10"></textarea><br>
+        <button id="post-comment-btn">Post Comment</button>
+    </div>
+    <script>
+        //Step1: Add Button Event Handler
+        document.getElementById('post-comment-btn').addEventListener('click', function(){
+            //Step2:Get User Comment
+            const userCommentField = document.getElementById('user-comment-field');
+            const userComment = userCommentField.value;
+            //Step3:Create Paragraph
+            const p = document.createElement('p');
+            p.innerText = userComment;
+            //Step4:Append the Comment
+            const parent = document.getElementById('container');
+            parent.appendChild(p);
+            //Step5:Clean the Comment Box
+            userCommentField.value = '';
+        })
+    </script>
+</body>
+</html>
